@@ -1,6 +1,6 @@
 package src.test;
 
-import java.beans.Transient;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.Test;
 
