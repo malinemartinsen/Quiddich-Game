@@ -2,6 +2,7 @@ package src.main.models;
 
 import java.io.ObjectInputStream.GetField;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Set;
 
 public class Team {
@@ -120,6 +121,7 @@ public class Team {
     }
 
     // Testing hasBlank()
+
     // Step 1, test to make code fail
     // public static boolean hasBlank(String[] array) {
     //     return false;
@@ -139,4 +141,25 @@ public class Team {
                 "Chasers: " + Arrays.toString(this.chasers) + "\n";
     }
     
+    // equals() method
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (!(obj instanceof Team)) {
+            return false;
+        }
+
+        Team team = (Team)obj;
+        return this.house.equals(team.house) &&
+        this.keeper.equals(team.keeper)
+        && this.seeker.equals(this.seeker)
+        && Arrays.toString(this.chasers).equals(Arrays.toString(team.chasers));
+    }
+
+    // hashCode() method
+    public int hashCode() {
+        return Objects.hash(house, keeper, seeker, Arrays.toString(this.chasers));
+    }
 }
